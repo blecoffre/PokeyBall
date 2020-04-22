@@ -1,7 +1,12 @@
 ﻿/// <summary>
 /// Only contains Events name used by scripts
 /// </summary>
-public class EventsName
+
+namespace PokeyBallTest.Consts
 {
-    public const string PlayerDie = "PlayerDie";
+    public class EventsName
+    {
+        public const string PlayerDie = "PlayerDie";
+    }
 }
+

@@ -1,13 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class InGameUIView : MonoBehaviour
+namespace PokeyBallTest.View
 {
-    [SerializeField] private GameObject m_loseContainer = default;
-
-    public void ShowLoseScreen()
+    public class InGameUIView : MonoBehaviour
     {
-        m_loseContainer?.SetActive(true);
+        [SerializeField] private GameObject m_loseContainer = default;
+
+        public void ShowLoseScreen()
+        {
+            m_loseContainer?.SetActive(true);
+        }
     }
 }
+

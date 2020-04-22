@@ -1,9 +1,14 @@
 ﻿/// <summary>
 /// Only contains Tag name used by scripts
 /// </summary>
-public class TagsName
+
+namespace PokeyBallTest.Consts
 {
-    public const string Player = "Player";
-    public const string DeathZone = "DeathZone";
-    public const string EndLine = "EndLine";
+    public class TagsName
+    {
+        public const string Player = "Player";
+        public const string DeathZone = "DeathZone";
+        public const string EndLine = "EndLine";
+    }
 }
+

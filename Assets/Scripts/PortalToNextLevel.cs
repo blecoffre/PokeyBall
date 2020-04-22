@@ -1,34 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using PokeyBallTest.Consts;
+using PokeyBallTest.Manager;
+using System.Collections;
 using UnityEngine;
 
-public class PortalToNextLevel : MonoBehaviour
+namespace PokeyBallTest
 {
-    [SerializeField] private float m_portalRadius = 5.0f;
-    [SerializeField] private float m_portalHeight = 0.1f;
-    private float progress = 0.0f;
-
-    private void OnEnable()
+    public class PortalToNextLevel : MonoBehaviour
     {
-        transform.localScale = new Vector3(transform.localScale.x, m_portalHeight, transform.localScale.z);
-        StartCoroutine("OpenPortal");
-    }
+        [SerializeField] private float m_portalRadius = 5.0f;
+        [SerializeField] private float m_portalHeight = 0.1f;
+        private float progress = 0.0f;
 
-    private IEnumerator OpenPortal()
-    {
-        while (transform.localScale.x < m_portalRadius)
+        private void OnEnable()
         {
-            progress += Time.deltaTime;
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(m_portalRadius, m_portalHeight, m_portalRadius), progress);
-            yield return new WaitForEndOfFrame();
+            transform.localScale = new Vector3(transform.localScale.x, m_portalHeight, transform.localScale.z);
+            StartCoroutine("OpenPortal");
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(TagsName.Player))
+        private IEnumerator OpenPortal()
         {
-            LevelManager.LoadNextLevel();
+            while (transform.localScale.x < m_portalRadius)
+            {
+                progress += Time.deltaTime;
+                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(m_portalRadius, m_portalHeight, m_portalRadius), progress);
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(TagsName.Player))
+            {
+                LevelManager.LoadNextLevel();
+            }
         }
     }
 }
+

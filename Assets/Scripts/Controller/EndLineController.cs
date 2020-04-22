@@ -1,21 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using PokeyBallTest.Consts;
 using UnityEngine;
 
-public class EndLineController : MonoBehaviour
+namespace PokeyBallTest.Controller
 {
-    [SerializeField] private GameObject m_nextLevelPortal = default;
-
-    private void OnTriggerEnter(Collider other)
+    public class EndLineController : MonoBehaviour
     {
-        if (other.CompareTag(TagsName.Player))
+        [SerializeField] private GameObject m_nextLevelPortal = default;
+
+        private void OnTriggerEnter(Collider other)
         {
-            Invoke("OpenPortal", 0.5f); //Call "OpenPortal" after a small delay, used to avoid player trigger the portal
+            if (other.CompareTag(TagsName.Player))
+            {
+                Invoke("OpenPortal", 0.5f); //Call "OpenPortal" after a small delay, used to avoid player trigger the portal
+            }
+        }
+
+        private void OpenPortal()
+        {
+            m_nextLevelPortal?.SetActive(true);
         }
     }
-
-    private void OpenPortal()
-    {
-        m_nextLevelPortal?.SetActive(true);
-    }
 }
+

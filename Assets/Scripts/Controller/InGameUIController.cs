@@ -1,4 +1,6 @@
-﻿using PokeyBallTest.Manager;
+﻿using PokeyBallTest.Consts;
+using PokeyBallTest.Manager;
+using PokeyBallTest.View;
 using UnityEngine;
 using UnityEngine.Events;
 
