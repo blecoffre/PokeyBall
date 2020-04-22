@@ -1,3 +1,4 @@
+Temps de travail supplémentaire : ~6h 
 Différence avec la précédente version : 
 
 Meilleur contrôles
